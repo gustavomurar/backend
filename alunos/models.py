@@ -9,7 +9,14 @@ class Estado(models.Model):
     
 class Cidade(models.Model):
     nome = models.CharField(max_length=50)
-    estadp = models.ForeignKey(Estado, on_delete=models.PROTECT)
+    estado = models.ForeignKey(Estado, on_delete=models.PROTECT)
 
     def _str_(self):
         return self.nome
+
+class Pessoa(models.Model):
+    nome = models.CharField(max_length=50)
+    telefone = models.CharField(max_length=50)
+    email = models.CharField(max_length=100)
+    datadenascimento = models.CharField(max_length=8)
+    cidade = models.ForeignKey(max_length=10)
